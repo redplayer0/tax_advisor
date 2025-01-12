@@ -1,16 +1,8 @@
 from typing import Annotated
 
-from dotenv import load_dotenv
 from fastapi import Depends
 from passlib.context import CryptContext
-from sqlmodel import Field, Session, SQLModel, create_engine, select
-import os
-
-load_dotenv()
-
-SECRET_KEY = os.getenv("SECRET_KEY")
-HASH_ALGORITHM = os.getenv("HASH_ALGORITHM")
-ACCESS_TOKEN_EXPIRE_MINS = 10
+from sqlmodel import Field, Session, SQLModel, create_engine
 
 
 class UserBase(SQLModel):
@@ -53,6 +45,3 @@ sqlite_url = f"sqlite:///{sqlite_file_name}"
 connect_args = {"check_same_thread": False}
 engine = create_engine(sqlite_url, connect_args=connect_args)
 SessionDep = Annotated[Session, Depends(get_session)]
-
-
-# Code below omitted 👇
