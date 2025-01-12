@@ -1,13 +1,16 @@
 from typing import Annotated
+
+from dotenv import load_dotenv
 from fastapi import Depends
-from sqlmodel import Field, Session, SQLModel, create_engine
+from passlib.context import CryptContext
+from sqlmodel import Field, Session, SQLModel, create_engine, select
+import os
 
+load_dotenv()
 
-sqlite_file_name = "database.db"
-sqlite_url = f"sqlite:///{sqlite_file_name}"
-
-connect_args = {"check_same_thread": False}
-engine = create_engine(sqlite_url, connect_args=connect_args)
+SECRET_KEY = os.getenv("SECRET_KEY")
+HASH_ALGORITHM = os.getenv("HASH_ALGORITHM")
+ACCESS_TOKEN_EXPIRE_MINS = 10
 
 
 class UserBase(SQLModel):
@@ -36,6 +39,19 @@ def get_session():
         yield session
 
 
+def verify_password(password: str, hashed_password):
+    return pwd_context.verify(password, hashed_password)
+
+
+def hash_password(password: str) -> str:
+    return pwd_context.hash(password)
+
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+sqlite_file_name = "database.db"
+sqlite_url = f"sqlite:///{sqlite_file_name}"
+connect_args = {"check_same_thread": False}
+engine = create_engine(sqlite_url, connect_args=connect_args)
 SessionDep = Annotated[Session, Depends(get_session)]
 
 
