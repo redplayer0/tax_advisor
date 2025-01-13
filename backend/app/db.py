@@ -2,24 +2,7 @@ from typing import Annotated
 
 from fastapi import Depends
 from passlib.context import CryptContext
-from sqlmodel import Field, Session, SQLModel, create_engine
-
-
-class UserBase(SQLModel):
-    username: str = Field(index=True, unique=True, nullable=False)
-
-
-class User(UserBase, table=True):
-    id: int = Field(default=None, primary_key=True)
-    hashed_password: str = Field(nullable=False)
-
-
-class UserPublic(UserBase):
-    username: str
-
-
-class UserCreate(UserBase):
-    password: str
+from sqlmodel import Session, SQLModel, create_engine
 
 
 def create_db_and_tables():
