@@ -3,7 +3,8 @@ Proof of concept app that provides tax advise. FastAPI | Angular 19 | sqlite | D
 
 # Setup
 - Clone the repo
-- Create a .env file with the following variables  SECRET_KEY, OPEN_API_KEY, HASH_ALGORITHM, ACCESS_TOKEN_EXPIRE_MINS (not required) 
+- Create a .env file in the repo's root, with the following variables  SECRET_KEY, OPEN_API_KEY, HASH_ALGORITHM, ACCESS_TOKEN_EXPIRE_MINS (not required) 
+- Navigate to the backend `cd backend`
 - Create a virtual env with `pip -m venv .env` for example, then `source .env/bin/activate`
 - Install dependencies with `pip install --requirement requirements.txt`
 - Run the backend application with `fastapi run`
