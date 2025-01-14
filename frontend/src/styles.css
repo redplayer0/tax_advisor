@@ -1,1 +1,210 @@
-/* You can add global styles to this file, and also import other style files */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.signup-box {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.signup-box h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 3px rgba(0, 112, 243, 0.3);
+}
+
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #005bb5;
+}
+
+/* Error Message Styling */
+small {
+  color: red;
+  font-size: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .signup-box {
+    padding: 20px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #f7f8fc;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+header {
+  background: linear-gradient(90deg, #0070f3, #0030a1);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #d6e5ff;
+}
+
+nav {
+  text-align: center;
+  margin: 20px 0;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #0070f3;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #0030a1;
+}
+
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+main h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+main p {
+  font-size: 1.1rem;
+  margin: 15px 0;
+  color: #555;
+}
+
+main ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+main ul li {
+  background: #f7f8fc;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s;
+}
+
+main ul li:hover {
+  background: #f0f4ff;
+  border-color: #0070f3;
+}
+
+main a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #0070f3;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+main a:hover {
+  background-color: #005bb5;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background: #f7f8fc;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+  margin-top: 40px;
+}
+
+footer p {
+  font-size: 0.9rem;
+}

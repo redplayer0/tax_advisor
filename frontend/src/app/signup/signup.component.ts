@@ -2,17 +2,22 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
-  imports: [NgIf,ReactiveFormsModule],
+  imports: [NgIf, ReactiveFormsModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
   signupForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.signupForm = this.fb.group(
       {
         username: ['', [Validators.required]],
@@ -33,7 +38,10 @@ export class SignupComponent {
     if (this.signupForm.valid) {
       const { username, password } = this.signupForm.value;
       this.authService.signup(username, password).subscribe({
-        next: () => alert('Signup successful!'),
+        next: () => {
+          alert('Signup successful!')
+          this.router.navigate(['/login']); // Redirect to home page after successful login
+        },
         error: () => alert('Signup failed!'),
       });
     }
