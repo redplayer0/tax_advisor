@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { jwtDecode } from 'jwt-decode';
 import { Observable } from 'rxjs';
+
+interface JwtToken {
+  exp: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +43,21 @@ export class AuthService {
 
   getAccessToken(): string | null {
     return localStorage.getItem('access_token');
+  }
+
+  isTokenExpired(): boolean {
+    const token = this.getAccessToken();
+    if (!token) {
+      return true; // No token means it's effectively "expired"
+    }
+    try {
+      const { exp } = jwtDecode<JwtToken>(token);
+      const now = Math.floor(Date.now() / 1000); // Current time in seconds
+      return exp < now;
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return true;
+    }
   }
 
   saveToken(token: string, tokenType: string): void {
