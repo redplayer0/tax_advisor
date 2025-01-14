@@ -1,0 +1,36 @@
+<div class="signup-container">
+  <div class="signup-box">
+    <h1>Sign Up</h1>
+    <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input id="username" type="text" formControlName="username" placeholder="Enter your username" required />
+        <div *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid">
+          <small *ngIf="signupForm.get('username')?.hasError('required')">Username is required.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" placeholder="Enter your password" required />
+        <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+          <small *ngIf="signupForm.get('password')?.hasError('minlength')">
+            Password must be at least 8 characters long.
+          </small>
+          <small *ngIf="signupForm.get('password')?.hasError('required')">Password is required.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" type="password" formControlName="confirmPassword"
+          placeholder="Confirm your password" required />
+        <div *ngIf="signupForm.hasError('passwordMismatch') && signupForm.get('confirmPassword')?.touched">
+          <small>Passwords must match.</small>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+    </form>
+  </div>
+</div>
