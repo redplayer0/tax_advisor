@@ -1,1 +1,39 @@
-<p>advice works!</p>
+<div class="advice-container">
+  <h1>Get Financial Advice</h1>
+  <form [formGroup]="adviceForm" (ngSubmit)="getAdvice()">
+    <div class="input-section">
+      <label for="monthlyIncome">Monthly Income:</label>
+      <input type="number" id="monthlyIncome" formControlName="monthly_income" min="1" required
+        placeholder="Enter your monthly income" />
+
+      <label for="monthlyExpenses">Monthly Expenses:</label>
+      <input type="number" id="monthlyExpenses" formControlName="monthly_expenses" min="1" required
+        placeholder="Enter your monthly expenses" />
+
+      <label>
+        <input type="checkbox" formControlName="is_married" /> Are you married?
+      </label>
+
+      <label for="childrenCount">Number of Children:</label>
+      <input type="number" id="childrenCount" formControlName="children_count" min="0"
+        placeholder="Enter the number of children (if any)" />
+
+      <label for="prompt">Additional Details:</label>
+      <textarea id="prompt" formControlName="prompt"
+        placeholder="Provide any specific questions or additional details"></textarea>
+    </div>
+
+    <button type="submit" [disabled]="adviceForm.invalid || loading">
+      {{ loading ? "Loading..." : "Get Advice" }}
+    </button>
+  </form>
+
+  <div *ngIf="modelResponse" class="response-section">
+    <h2>Advice:</h2>
+    <p>{{ modelResponse }}</p>
+  </div>
+
+  <div *ngIf="error" class="error">
+    <p>Error: {{ error }}</p>
+  </div>
+</div>
