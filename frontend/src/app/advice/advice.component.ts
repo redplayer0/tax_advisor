@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrls: ['./advice.component.css'],
 })
 export class AdviceComponent {
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = 'http://0.0.0.0:8000';
   private adviceEndpoint = `${this.apiUrl}/advice`
   adviceForm: FormGroup;
   modelResponse: string | null = null;

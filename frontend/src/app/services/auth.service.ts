@@ -11,7 +11,7 @@ interface JwtToken {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = 'http://0.0.0.0:8000';
 
   constructor(private http: HttpClient) { }
 

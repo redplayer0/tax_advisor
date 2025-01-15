@@ -33,6 +33,11 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 origins = [
     "http://localhost",
     "http://localhost:4200",
+    "http://localhost:80",
+    "http://0.0.0.0",
+    "http://0.0.0.0:80",
+    "http://0.0.0.0:8000",
+    "http://0.0.0.0:4200",
 ]
 
 app.add_middleware(

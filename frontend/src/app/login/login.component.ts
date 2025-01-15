@@ -42,7 +42,8 @@ export class LoginComponent {
           this.authService.saveToken(access_token, token_type);
           // use this to force a refresh to show correct token time remaining..
           // TODO find way to avoid this hack
-          window.location.href = '/advice';
+          window.location.href = '/';
+          // this.router.navigate(['/advice']);
         },
         error: (err) => {
           this.errorMessage = 'Invalid username or password. Please try again.';
