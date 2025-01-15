@@ -3,7 +3,8 @@ Proof of concept app that provides tax advice. FastAPI | Angular 19 | sqlite | D
 
 # Setup - How to run
 - Clone the repo
-- Create a .env file in the repo's root, with the following variables  SECRET_KEY, OPEN_API_KEY, HASH_ALGORITHM, ACCESS_TOKEN_EXPIRE_MINS
+- In order to run the application you need an `.env` file, for convenience an example is provided
+- Run 'mv .example_env .env' to rename the example, then open the file and edit the values with your keys and preferences
 - Run `docker-compose up --build`
 - Navigate to `localhost:80` or `0.0.0.0:80`
 - Explore the application
