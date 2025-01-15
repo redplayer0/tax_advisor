@@ -1,13 +1,12 @@
 # tax_advisor
 Proof of concept app that provides tax advice. FastAPI | Angular 19 | sqlite | Docker | oath2 | openAPI
 
-# Setup
+# Setup - How to run
 - Clone the repo
-- Create a .env file in the repo's root, with the following variables  SECRET_KEY, OPEN_API_KEY, HASH_ALGORITHM, ACCESS_TOKEN_EXPIRE_MINS (not required) 
-- Navigate to the backend `cd backend`
-- Create a virtual env with `pip -m venv .env` for example, then `source .env/bin/activate`
-- Install dependencies with `pip install --requirement requirements.txt`
-- Run the backend application with `fastapi run`
+- Create a .env file in the repo's root, with the following variables  SECRET_KEY, OPEN_API_KEY, HASH_ALGORITHM, ACCESS_TOKEN_EXPIRE_MINS
+- Run `docker-compose up --build`
+- Navigate to `localhost:80` or `0.0.0.0:80`
+- Explore the application
 
 # Backend application
 - fastapi application
@@ -34,4 +33,3 @@ Proof of concept app that provides tax advice. FastAPI | Angular 19 | sqlite | D
 - The model's response is stored in a new Advice object, which also includes the user's original input for reference. This is then returned to the user via the API.
 - The /advice endpoint responds with the saved advice, including both the user’s financial data and the AI-generated tax advice.
 - The advice contains user-specific tax information and suggestions, helping users understand their tax situation based on their financial details.
-
