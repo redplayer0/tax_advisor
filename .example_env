@@ -1,0 +1,4 @@
+SECRET_KEY=(here insert the output of `openssl rand -hex 32`)
+HASH_ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINS=10
+OPEN_API_KEY=your-open-api-key
