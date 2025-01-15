@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - HASH_ALGORITHM=${HASH_ALGORITHM}
+      - ACCESS_TOKEN_EXPIRE_MINS=${ACCESS_TOKEN_EXPIRE_MINS}
+      - OPEN_API_KEY=${OPEN_API_KEY}
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
