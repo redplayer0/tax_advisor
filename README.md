@@ -1,5 +1,5 @@
 # tax_advisor
-### ![Test Status](https://img.shields.io/github/workflow/status/myusername/myrepo/backend-ci.yml?label=tests&logo=github&style=flat-square)
+### ![Test status](https://github.com/github/docs/actions/workflows/backend-tests.yml/badge.svg?event=push)
 Proof of concept app that provides tax advice. FastAPI | Angular 19 | sqlite | Docker | oath2 | openAPI
 
 # Setup - How to run
