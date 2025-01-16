@@ -161,7 +161,7 @@ async def generate_advice(
     current_user: Annotated[User, Depends(get_current_user)],
     session: SessionDep,
 ):
-    info = str(advice.dict())
+    info = str(advice.model_dump())
     model_response = client.chat.completions.create(
         messages=[
             {

@@ -3,3 +3,5 @@ node_modules/
 *.env
 *.log
 backend/database.db
+test_database.db
+database.db

@@ -5,7 +5,7 @@ Proof of concept app that provides tax advice. FastAPI | Angular 19 | sqlite | D
 # Setup - How to run
 - Clone the repo
 - In order to run the application you need an `.env` file, for convenience an example is provided
-- Run 'mv .example_env .env' to rename the example, then open the file and edit the values with your keys and preferences
+- Run `mv .example_env .env` to rename the example, then open the file and edit the values with your keys and preferences
 - Run `docker-compose up --build`
 - Navigate to `localhost:80` or `0.0.0.0:80`
 - Explore the application
@@ -19,10 +19,10 @@ Proof of concept app that provides tax advice. FastAPI | Angular 19 | sqlite | D
 - user provides financial info and a prompt and the app return tax advise through the use of gpt-4o
 
 # REST API
-- POST /token: Login with username and password to get an access token (OAuth2).
-- POST /signup: Create a new user with a username and password.
-- GET /users/me: Get the current user's details (requires Bearer token).
-- POST /advice: Generate financial advice based on user input (requires Bearer token).
+- `POST /token`: Login with username and password to get an access token (OAuth2).
+- `POST /signup`: Create a new user with a username and password.
+- `GET /users`/me: Get the current user's details (requires Bearer token).
+- `POST /advice`: Generate financial advice based on user input (requires Bearer token).
 
 # openAI API Integration
 - The OpenAI API key is loaded securely from the environment variables using the dotenv package.
