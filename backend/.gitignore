@@ -1,2 +1,4 @@
 env
 .env
+test_database.db
+.pytest_cache

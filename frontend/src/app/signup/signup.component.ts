@@ -42,7 +42,13 @@ export class SignupComponent {
           alert('Signup successful!')
           this.router.navigate(['/login']);
         },
-        error: () => alert('Signup failed!'),
+        error: (err) => {
+          if (err.error?.detail) {
+            alert(`Signup failed: ${err.error.detail}`);
+          } else {
+            alert('Signup failed');
+          }
+        },
       });
     }
   }

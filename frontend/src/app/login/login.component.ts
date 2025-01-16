@@ -46,7 +46,11 @@ export class LoginComponent {
           // this.router.navigate(['/advice']);
         },
         error: (err) => {
-          this.errorMessage = 'Invalid username or password. Please try again.';
+          if (err.error?.detail) {
+            this.errorMessage = err.error.detail
+          } else {
+            alert('Login failed');
+          }
         },
       });
     }

@@ -136,6 +136,12 @@ async def login_for_access_token(
 
 @app.post("/signup", response_model=UserPublic)
 def create_user(user: UserCreate, session: SessionDep):
+    if session.execute(select(User).where(User.username == user.username)).all():
+        raise HTTPException(status_code=409, detail="User already exists")
+    if len(user.password) < 8:
+        raise HTTPException(
+            status_code=400, detail="Password must be at least 8 characters long"
+        )
     data = dict(hashed_password=hash_password(user.password))
     db_user = User.model_validate(user, update=data)
     session.add(db_user)
