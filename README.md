@@ -1,4 +1,5 @@
 # tax_advisor
+![Test Status](https://img.shields.io/github/workflow/status/myusername/myrepo/backend-ci.yml?label=tests&logo=github&style=flat-square)
 Proof of concept app that provides tax advice. FastAPI | Angular 19 | sqlite | Docker | oath2 | openAPI
 
 # Setup - How to run
@@ -39,3 +40,10 @@ Proof of concept app that provides tax advice. FastAPI | Angular 19 | sqlite | D
 - The backend is served through `uvicorn` while the frontend is using `nginx` to serve the static files
 - We are using a docker-compose to run the application as a whole with one command
 - Our keys are saved in a .env file in the projects root and are kept out of version control
+
+# CI/CD
+The CI pipeline automatically runs tests on the backend whenever changes are pushed to the main branch. The steps are:
+- Code Checkout: The workflow starts by checking out the latest code from the repository
+- Dependencies Installation: It sets up the necessary environment and installs the required dependencies
+- Run Tests: The backend tests are executed using pytest to ensure that everything works as expected
+- Test Status: After running the tests, the pipeline will show whether they have passed or failed
