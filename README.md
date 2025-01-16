@@ -1,5 +1,5 @@
 # tax_advisor
-### ![Test status](https://github.com/github/docs/actions/workflows/backend-tests.yml/badge.svg?event=push)
+### ![Test status](https://github.com/redplayer0/tax_advisor/actions/workflows/backend-tests.yml/badge.svg)
 Proof of concept app that provides tax advice. FastAPI | Angular 19 | sqlite | Docker | oath2 | openAPI
 
 # Setup - How to run
