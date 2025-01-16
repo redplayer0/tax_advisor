@@ -1,0 +1,28 @@
+name: Backend CI/CD Pipeline with Tests
+on:
+  push:
+    branches:
+      - main
+jobs:
+  backend-test:
+    runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      HASH_ALGORITHM: ${{ secrets.HASH_ALGORITHM }}
+      ACCESS_TOKEN_EXPIRE_MINS: ${{ secrets.ACCESS_TOKEN_EXPIRE_MINS }}
+      OPEN_API_KEY: ${{ secrets.OPEN_API_KEY }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python 3.12.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12.7
+      - name: Install dependencies
+        run: |
+          cd backend
+          pip install -r requirements.txt
+      - name: Run backend tests
+        run: |
+          cd backend
+          pytest --maxfail=5 --disable-warnings -q test_main.py
